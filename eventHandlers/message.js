@@ -1,9 +1,7 @@
 import { discordClient } from "../construct/client.js";
-import { AnswerInterpreter } from "../utils/answerInterpreter.js";
-import { getPrompts } from "../utils/prompts.js";
 import { formatDiscordReply } from "../utils/formatters.js";
 import { is_blocked, checkAndUpdateServer } from "../utils/brain.js";
-const prompts = getPrompts();
+
 async function handleMessage(message, ai) {
     // Ignore messages from bots (including ourselves)
     if (message.author.bot) return;

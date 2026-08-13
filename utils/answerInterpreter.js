@@ -62,17 +62,13 @@ class AnswerInterpreter {
     async handleInput() {
         const tools = await AnswerInterpreter.loadTools();
         const results = [];
-        let ignored = false;
-        
+
         for (const line of this.lines) {
             const result = await this.handleLine(line, tools);
             if (result) results.push(result);
-            if (result?.ended) {
-                ignored = true;
-                break;
-            }
+            if (result?.ended) break;
         }
-        
+
         return results;
     }
 
@@ -95,13 +91,6 @@ class AnswerInterpreter {
             return null;
         }
 
-        console.log("Executed: " + fn);
-        console.log(params)
-        console.log("Tool call supply:", {
-            fn,
-            params,
-            rawLine: line
-        });
         const result = await tool({
             client: this.client,
             message: this.message,
@@ -109,10 +98,7 @@ class AnswerInterpreter {
             rawLine: line
         });
 
-        console.log("Tool call result:", {
-            fn,
-            result
-        });
+        console.log("Executed:", fn, params, "->", JSON.stringify(result)?.slice(0, 200));
 
         if (result?.ended) return result;
         return { fn, params, result };

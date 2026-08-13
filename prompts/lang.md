@@ -8,6 +8,9 @@ The syntax is simple:
 function_name(parameter1, parameter2, ...);
 Every line must end with a semicolon (;).
 You do not have to put "" in parameters, ever.
+
+Todos:
+If you need to do something in the future (write something, make a plan, etc) make it a todo.
 ___
 All docs:
 

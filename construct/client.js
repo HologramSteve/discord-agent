@@ -86,4 +86,8 @@ const client = new Client({
     partials: [Partials.Channel]
 });
 
-export { client as discordClient, ai as aiClient, DISCORD_TOKEN as discordToken}
+export {
+    client as discordClient,
+    ai as aiClient,
+    DISCORD_TOKEN as discordToken
+};

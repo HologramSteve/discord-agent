@@ -98,11 +98,6 @@ class AIClient {
         return result;
     }
 
-    clearMemory() {
-        const systemMsg = this.history[0];
-        this.history = [systemMsg];
-        console.log("aiClient | Memory cleared.");
-    }
 }
 
 export { AIClient };
